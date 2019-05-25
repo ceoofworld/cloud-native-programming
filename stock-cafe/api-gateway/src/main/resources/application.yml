@@ -1,0 +1,22 @@
+server:
+  port: ${PORT:8080}
+
+spring:
+  application:
+    name: api-gateway
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+    registerWithEureka: false
+
+zuul:
+  prefix: /api
+  routes:
+    stock-service:
+      path: /stock/**
+
+management:
+  security:
+    enabled: false
